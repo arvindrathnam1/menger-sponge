@@ -390,9 +390,9 @@ export class MengerSponge implements IMengerSponge {
 	  // TODO: right now this makes a single triangle. Make the cube fractal instead.
     if(this.isDirty()){
       // this.MakeMenger();
-      this.positions_flat = new Float32Array();
-      this.indices_flat = new Uint32Array();
-      this.normals_flat = new Float32Array();
+      this.positions_flat = new Float32Array([]);
+      this.indices_flat = new Uint32Array([]);
+      this.normals_flat = new Float32Array([]);
       this.recursiveCubes(-.5, -.5, -.5, 1, this.L);
       this.setClean();
     }
@@ -407,9 +407,9 @@ export class MengerSponge implements IMengerSponge {
     if(this.isDirty()){
       // this.MakeMenger();
       // this.setClean();
-      this.positions_flat = new Float32Array();
-      this.indices_flat = new Uint32Array();
-      this.normals_flat = new Float32Array();
+      this.positions_flat = new Float32Array([]);
+      this.indices_flat = new Uint32Array([]);
+      this.normals_flat = new Float32Array([]);
       this.recursiveCubes(-.5, -.5, -.5, 1, this.L);
       this.setClean();
     }
@@ -424,9 +424,9 @@ export class MengerSponge implements IMengerSponge {
 	  if(this.isDirty()){
       // this.MakeMenger();
       // this.setClean();
-      this.positions_flat = new Float32Array();
-      this.indices_flat = new Uint32Array();
-      this.normals_flat = new Float32Array();
+      this.positions_flat = new Float32Array([]);
+      this.indices_flat = new Uint32Array([]);
+      this.normals_flat = new Float32Array([]);
       this.recursiveCubes(-.5, -.5, -.5, 1, this.L);
       this.setClean();
     }

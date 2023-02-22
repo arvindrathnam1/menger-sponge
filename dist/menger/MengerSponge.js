@@ -1,18 +1,9 @@
 import { Mat4 } from "../lib/TSM.js";
-class Cube {
-    constructor(x, y, z, side) {
-        this.minx = x;
-        this.miny = y;
-        this.minz = z;
-        this.length = side;
-    }
-}
 /**
  * Represents a Menger Sponge
  */
 export class MengerSponge {
     constructor(level) {
-        this.cubes = [];
         this.setLevel(level);
         // TODO: other initialization	
         var min = -0.5;
@@ -313,9 +304,9 @@ export class MengerSponge {
         // TODO: right now this makes a single triangle. Make the cube fractal instead.
         if (this.isDirty()) {
             // this.MakeMenger();
-            this.positions_flat = new Float32Array();
-            this.indices_flat = new Uint32Array();
-            this.normals_flat = new Float32Array();
+            this.positions_flat = new Float32Array([]);
+            this.indices_flat = new Uint32Array([]);
+            this.normals_flat = new Float32Array([]);
             this.recursiveCubes(-.5, -.5, -.5, 1, this.L);
             this.setClean();
         }
@@ -329,9 +320,9 @@ export class MengerSponge {
         if (this.isDirty()) {
             // this.MakeMenger();
             // this.setClean();
-            this.positions_flat = new Float32Array();
-            this.indices_flat = new Uint32Array();
-            this.normals_flat = new Float32Array();
+            this.positions_flat = new Float32Array([]);
+            this.indices_flat = new Uint32Array([]);
+            this.normals_flat = new Float32Array([]);
             this.recursiveCubes(-.5, -.5, -.5, 1, this.L);
             this.setClean();
         }
@@ -345,9 +336,9 @@ export class MengerSponge {
         if (this.isDirty()) {
             // this.MakeMenger();
             // this.setClean();
-            this.positions_flat = new Float32Array();
-            this.indices_flat = new Uint32Array();
-            this.normals_flat = new Float32Array();
+            this.positions_flat = new Float32Array([]);
+            this.indices_flat = new Uint32Array([]);
+            this.normals_flat = new Float32Array([]);
             this.recursiveCubes(-.5, -.5, -.5, 1, this.L);
             this.setClean();
         }
