@@ -91,7 +91,7 @@ export class GUI {
         // TOOD: Your code for key handling
         switch (key.code) {
             case "KeyW": {
-                this.camera.offset(this.camera.forward(), GUI.zoomSpeed, false);
+                this.camera.offset(this.camera.forward(), -GUI.zoomSpeed, false);
                 break;
             }
             case "KeyA": {
@@ -99,7 +99,7 @@ export class GUI {
                 break;
             }
             case "KeyS": {
-                this.camera.offset(this.camera.forward(), -GUI.zoomSpeed, false);
+                this.camera.offset(this.camera.forward(), GUI.zoomSpeed, false);
                 break;
             }
             case "KeyD": {

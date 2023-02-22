@@ -56,7 +56,7 @@ export class MengerSponge implements IMengerSponge {
       min+1, min, min+1, 1.0, //6
       min+1, min+1, min+1, 1.0, //7
 
-      // left face      
+      // right face      
       min, min, min, 1.0, //0
       min, min+1, min, 1.0, //1
       min, min, min+1, 1.0, //4
@@ -65,7 +65,7 @@ export class MengerSponge implements IMengerSponge {
       min, min, min+1, 1.0, //4
       min, min+1, min+1, 1.0, //5
 
-      //right face
+      //left face
       min+1, min, min, 1.0, //2
       min+1, min+1, min, 1.0, //3
       min+1, min, min+1, 1.0, //6
@@ -95,21 +95,21 @@ export class MengerSponge implements IMengerSponge {
 
     // this.indices_flat = new Uint32Array([0, 1, 2]);
     this.indices_flat = new Uint32Array([
-      // front face
+      //front face
       0, 1, 2,
       3, 5, 4,
       //back face
-      6, 7, 8,
-      9, 11, 10,
-      //left face
-      12, 13, 14,
-      15, 17, 16,
+      7, 6, 8,
+      11, 9, 10,
       //right face
-      18, 19, 20,
-      21, 23, 22,
+      13, 12, 14,
+      17, 15, 16,
+      //left face
+      19, 20, 18,
+      23, 22, 21,
       //top face
-      24, 25, 26,
-      27, 29, 28,
+      25, 24, 26,
+      29, 27, 28,
       //bottom face
       30, 31, 32,
       33, 35, 34
@@ -133,7 +133,7 @@ export class MengerSponge implements IMengerSponge {
       0.0, 0.0, 1.0, 0.0, 
       0.0, 0.0, 1.0, 0.0, 
 
-      // left face
+      // right face
       -1.0, 0.0, 0.0, 0.0,
       -1.0, 0.0, 0.0, 0.0,
       -1.0, 0.0, 0.0, 0.0,
@@ -141,7 +141,7 @@ export class MengerSponge implements IMengerSponge {
       -1.0, 0.0, 0.0, 0.0,
       -1.0, 0.0, 0.0, 0.0,
 
-      // right face
+      // left face
       1.0, 0.0, 0.0, 0.0,
       1.0, 0.0, 0.0, 0.0,
       1.0, 0.0, 0.0, 0.0,
