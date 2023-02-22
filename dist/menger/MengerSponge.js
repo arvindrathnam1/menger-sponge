@@ -230,21 +230,23 @@ export class MengerSponge {
         0.0, -1.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0);
     }
     MakeMenger() {
-        for (let i = 2; i <= this.L; i++) {
-            this.pushToList();
-        }
-        let position = [];
-        let index = [];
-        let normal = [];
-        this.cubes.forEach(function (cube) {
-            if (cube == null) {
-                return;
+        if (this.L > 1) {
+            for (let i = 2; i <= this.L; i++) {
+                this.pushToList();
             }
-            this.makeCube(cube.minx, cube.miny, cube.minz, cube.length, position, index, normal);
-        });
-        this.positions_flat = Float32Array.from(position);
-        this.indices_flat = Uint32Array.from(index);
-        this.normals_flat = Float32Array.from(position);
+            let position = [];
+            let index = [];
+            let normal = [];
+            this.cubes.forEach(function (cube) {
+                if (cube == null) {
+                    return;
+                }
+                this.makeCube(cube.minx, cube.miny, cube.minz, cube.length, position, index, normal);
+            });
+            this.positions_flat = Float32Array.from(position);
+            this.indices_flat = Uint32Array.from(index);
+            this.normals_flat = Float32Array.from(position);
+        }
     }
     pushToList() {
         var big_cube = this.cubes.shift();
@@ -252,7 +254,7 @@ export class MengerSponge {
             return;
         }
         let compute_size = big_cube.length;
-        while (this.cubes[0].length == compute_size) {
+        while (big_cube.length == compute_size) {
             var minx = big_cube.minx;
             var miny = big_cube.miny;
             var minz = big_cube.minz;
@@ -282,6 +284,7 @@ export class MengerSponge {
                 return;
             }
         }
+        this.cubes.push(big_cube);
     }
     /*
   
