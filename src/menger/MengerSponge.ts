@@ -10,20 +10,6 @@ interface IMengerSponge {
   positionsFlat(): Float32Array;
 }
 
-class Cube {
-  minx: number;
-  miny: number;
-  minz: number;
-  length: number;
-
-  constructor(x: number, y: number, z:number, side:number){
-    this.minx = x;
-    this.miny = y;
-    this.minz = z;
-    this.length = side;
-  }
-}
-
 /**
  * Represents a Menger Sponge
  */
@@ -36,10 +22,8 @@ export class MengerSponge implements IMengerSponge {
   indices_flat: Uint32Array;
   normals_flat: Float32Array;
   side_length: number;
-  cubes: Cube[];
   
   constructor(level: number) {
-    this.cubes = [];
 	  this.setLevel(level);    
     // TODO: other initialization	
 
