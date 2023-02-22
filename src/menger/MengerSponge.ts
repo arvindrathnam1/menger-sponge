@@ -347,10 +347,7 @@ export class MengerSponge implements IMengerSponge {
       let index: number[] = [];
       let normal: number[] = [];
       
-      this.cubes.forEach(function(cube) {
-        if(cube == null){
-          return;
-        }
+      this.cubes.forEach(cube => {
         this.makeCube(cube.minx, cube.miny, cube.minz, cube.length, position, index, normal);
       });
   

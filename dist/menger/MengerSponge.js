@@ -237,10 +237,7 @@ export class MengerSponge {
             let position = [];
             let index = [];
             let normal = [];
-            this.cubes.forEach(function (cube) {
-                if (cube == null) {
-                    return;
-                }
+            this.cubes.forEach(cube => {
                 this.makeCube(cube.minx, cube.miny, cube.minz, cube.length, position, index, normal);
             });
             this.positions_flat = Float32Array.from(position);
