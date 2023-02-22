@@ -33,9 +33,26 @@ export let defaultFSText = `
     varying vec4 lightDir;
     varying vec4 normal;    
 	
-    
     void main () {
         gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+        if(normal == vec4(1.0, 0.0, 0.0, 0.0)){
+            gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0); //red
+        }
+        else if(normal == vec4(-1.0, 0.0, 0.0, 0.0)){
+            gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0); //red
+        }
+        else if(normal == vec4(0.0, 1.0, 0.0, 0.0)){
+            gl_FragColor = vec4(0.0, 0.5019608, 0.0, 1.0); //green
+        }
+        else if(normal == vec4(0.0, -1.0, 0.0, 0.0)){
+            gl_FragColor = vec4(0.0, 0.5019608, 0.0, 1.0); //green
+        }
+        else if(normal == vec4(0.0, 0.0, 1.0, 0.0)){
+            gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0); //blue
+        }
+        else{
+            gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0); //blue
+        }
     }
 `;
 
