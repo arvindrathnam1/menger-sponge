@@ -91,42 +91,60 @@ export class GUI {
         // TOOD: Your code for key handling
         switch (key.code) {
             case "KeyW": {
+                this.camera.offset(this.camera.forward(), GUI.zoomSpeed, false);
                 break;
             }
             case "KeyA": {
+                this.camera.offset(this.camera.right(), -GUI.panSpeed, false);
                 break;
             }
             case "KeyS": {
+                this.camera.offset(this.camera.forward(), -GUI.zoomSpeed, false);
                 break;
             }
             case "KeyD": {
+                this.camera.offset(this.camera.right(), GUI.panSpeed, false);
                 break;
             }
             case "KeyR": {
                 break;
             }
             case "ArrowLeft": {
+                this.camera.roll(GUI.rollSpeed, false);
                 break;
             }
             case "ArrowRight": {
+                this.camera.roll(GUI.rollSpeed, true);
                 break;
             }
             case "ArrowUp": {
+                this.camera.offset(this.camera.up(), GUI.panSpeed, false);
                 break;
             }
             case "ArrowDown": {
+                this.camera.offset(this.camera.up(), -GUI.panSpeed, false);
                 break;
             }
             case "Digit1": {
+                this.sponge.setLevel(1);
+                /*
+                geometry should only be recreated when one of these keys is pressed---do not procedurally generate the cube every frame
+                Hint: any time you change the vertex or triangle list, you need to inform OpenGL about the new data by binding the
+                vertex and triangle VBOs using glBindBuffer, passing the new data to the GPU using glBufferData, etc
+                soo make menger dirty?
+                */
                 break;
             }
             case "Digit2": {
+                this.sponge.setLevel(2);
                 break;
             }
             case "Digit3": {
+                this.sponge.setLevel(3);
                 break;
             }
             case "Digit4": {
+                this.sponge.setLevel(4);
                 break;
             }
             default: {

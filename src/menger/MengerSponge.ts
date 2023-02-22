@@ -38,48 +38,132 @@ export class MengerSponge implements IMengerSponge {
     ]);
     */
     this.positions_flat = new Float32Array([
-      min, min, min, 1.0,
-      min, min+1, min, 1.0,
-      min+1, min, min, 1.0,
-      min+1, min+1, min, 1.0,
-      min, min, min+1, 1.0,
-      min, min+1, min+1, 1.0,
-      min+1, min, min+1, 1.0,
-      min+1, min+1, min+1, 1.0
+      //front face
+      min, min, min, 1.0, //0
+      min, min+1, min, 1.0, //1
+      min+1, min, min, 1.0, //2
+      
+      min, min+1, min, 1.0, //1
+      min+1, min, min, 1.0, //2
+      min+1, min+1, min, 1.0, //3
+
+      //back face
+      min, min, min+1, 1.0, //4
+      min, min+1, min+1, 1.0, //5
+      min+1, min, min+1, 1.0, //6
+      
+      min, min+1, min+1, 1.0, //5
+      min+1, min, min+1, 1.0, //6
+      min+1, min+1, min+1, 1.0, //7
+
+      // left face      
+      min, min, min, 1.0, //0
+      min, min+1, min, 1.0, //1
+      min, min, min+1, 1.0, //4
+
+      min, min+1, min, 1.0, //1
+      min, min, min+1, 1.0, //4
+      min, min+1, min+1, 1.0, //5
+
+      //right face
+      min+1, min, min, 1.0, //2
+      min+1, min+1, min, 1.0, //3
+      min+1, min, min+1, 1.0, //6
+
+      min+1, min+1, min, 1.0, //3
+      min+1, min, min+1, 1.0, //6
+      min+1, min+1, min+1, 1.0, //7
+
+      //top face
+      min, min+1, min, 1.0, //1
+      min+1, min+1, min, 1.0, //3
+      min, min+1, min+1, 1.0, //5
+
+      min+1, min+1, min, 1.0, //3
+      min, min+1, min+1, 1.0, //5
+      min+1, min+1, min+1, 1.0, //7
+
+      //bottom face
+      min, min, min, 1.0, //0
+      min+1, min, min, 1.0, //2
+      min, min, min+1, 1.0, //4
+
+      min+1, min, min, 1.0, //2
+      min, min, min+1, 1.0, //4
+      min+1, min, min+1, 1.0, //6
     ]);
 
     // this.indices_flat = new Uint32Array([0, 1, 2]);
     this.indices_flat = new Uint32Array([
       // front face
       0, 1, 2,
-      1, 3, 2,
-      // left side face
-      0, 1, 4,
-      1, 5, 4,
-      // right side face
-      2, 6, 3,
-      3, 6, 7,
-      // back face
-      4, 5, 6, 
-      5, 7, 6,
-      // top face
-      1, 3, 5,
-      3, 7, 5,
-      // bottom face
-      0, 4, 2,
-      2, 4, 6,
+      3, 5, 4,
+      //back face
+      6, 7, 8,
+      9, 11, 10,
+      //left face
+      12, 13, 14,
+      15, 17, 16,
+      //right face
+      18, 19, 20,
+      21, 23, 22,
+      //top face
+      24, 25, 26,
+      27, 29, 28,
+      //bottom face
+      30, 31, 32,
+      33, 35, 34
     ]);
 
     //this.normals_flat = new Float32Array([0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0]);
     this.normals_flat = new Float32Array([
-      0.0, 0.0, 1.0, 0.0, 
-      0.0, 0.0, 1.0, 0.0, 
-      0.0, 0.0, 1.0, 0.0,
-      0.0, 0.0, 1.0, 0.0,
-      0.0, 0.0, 1.0, 0.0, 
-      0.0, 0.0, 1.0, 0.0, 
-      0.0, 0.0, 1.0, 0.0,
-      0.0, 0.0, 1.0, 0.0,
+      // front face
+      0.0, -1.0, 0.0, 0.0, 
+      0.0, -1.0, 0.0, 0.0, 
+      0.0, -1.0, 0.0, 0.0, 
+      0.0, -1.0, 0.0, 0.0, 
+      0.0, -1.0, 0.0, 0.0, 
+      0.0, -1.0, 0.0, 0.0, 
+
+      //back face
+      0.0, 1.0, 0.0, 0.0, 
+      0.0, 1.0, 0.0, 0.0, 
+      0.0, 1.0, 0.0, 0.0, 
+      0.0, 1.0, 0.0, 0.0, 
+      0.0, 1.0, 0.0, 0.0, 
+      0.0, 1.0, 0.0, 0.0, 
+
+      // left face
+      -1.0, 0.0, 0.0, 0.0,
+      -1.0, 0.0, 0.0, 0.0,
+      -1.0, 0.0, 0.0, 0.0,
+      -1.0, 0.0, 0.0, 0.0,
+      -1.0, 0.0, 0.0, 0.0,
+      -1.0, 0.0, 0.0, 0.0,
+
+      // right face
+      1.0, 0.0, 0.0, 0.0,
+      1.0, 0.0, 0.0, 0.0,
+      1.0, 0.0, 0.0, 0.0,
+      1.0, 0.0, 0.0, 0.0,
+      1.0, 0.0, 0.0, 0.0,
+      1.0, 0.0, 0.0, 0.0,
+
+      //top face
+      0.0, 1.0, 0.0, 0.0,
+      0.0, 1.0, 0.0, 0.0,
+      0.0, 1.0, 0.0, 0.0,
+      0.0, 1.0, 0.0, 0.0,
+      0.0, 1.0, 0.0, 0.0,
+      0.0, 1.0, 0.0, 0.0,
+
+      //bottom face
+      0.0, -1.0, 0.0, 0.0,
+      0.0, -1.0, 0.0, 0.0,
+      0.0, -1.0, 0.0, 0.0,
+      0.0, -1.0, 0.0, 0.0,
+      0.0, -1.0, 0.0, 0.0,
+      0.0, -1.0, 0.0, 0.0,
     ]);
   }
 
@@ -124,7 +208,7 @@ export class MengerSponge implements IMengerSponge {
     if(this.isDirty()){
       for(let i=2; i<=this.L; i++){
         this.side_length = this.side_length/3;
-        
+        //use push instead of concat 
       }
       //recompute this.positions_flat;
     }
