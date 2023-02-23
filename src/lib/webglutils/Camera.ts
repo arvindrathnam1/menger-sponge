@@ -245,7 +245,7 @@ export class Camera {
       target.add(dir);
     }
 
-    this.setTarget(target);
+    //this.setTarget(target);
   }
 
   // Camera::roll - rolls the camera

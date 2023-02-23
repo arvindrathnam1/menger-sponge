@@ -184,7 +184,7 @@ export class Camera {
         if (offsetTarget === true) {
             target.add(dir);
         }
-        this.setTarget(target);
+        //this.setTarget(target);
     }
     // Camera::roll - rolls the camera
     // @param radians - the number of radians to spin roll the camera
