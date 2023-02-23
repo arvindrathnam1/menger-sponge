@@ -141,12 +141,6 @@ export class GUI {
             }
             case "Digit1": {
                 this.sponge.setLevel(1);
-                /*
-                geometry should only be recreated when one of these keys is pressed---do not procedurally generate the cube every frame
-                Hint: any time you change the vertex or triangle list, you need to inform OpenGL about the new data by binding the
-                vertex and triangle VBOs using glBindBuffer, passing the new data to the GPU using glBufferData, etc
-                soo make menger dirty?
-                */
                 break;
             }
             case "Digit2": {
