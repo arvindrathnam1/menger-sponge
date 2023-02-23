@@ -32,7 +32,7 @@ export let defaultFSText = `
 
     varying vec4 lightDir;
     varying vec4 normal;    
-	
+
     void main () {
         gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
         if(normal == vec4(1.0, 0.0, 0.0, 0.0)){
@@ -42,10 +42,10 @@ export let defaultFSText = `
             gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0); //red
         }
         else if(normal == vec4(0.0, 1.0, 0.0, 0.0)){
-            gl_FragColor = vec4(0.0, 0.5019608, 0.0, 1.0); //green
+            gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0); //green
         }
         else if(normal == vec4(0.0, -1.0, 0.0, 0.0)){
-            gl_FragColor = vec4(0.0, 0.5019608, 0.0, 1.0); //green
+            gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0); //green
         }
         else if(normal == vec4(0.0, 0.0, 1.0, 0.0)){
             gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0); //blue
@@ -53,6 +53,19 @@ export let defaultFSText = `
         else{
             gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0); //blue
         }
+        vec3 lightDir3 = vec3(lightDir[0], lightDir[1], lightDir[2]);
+        lightDir3 = normalize(lightDir3);
+        vec3 normal3 = vec3(normal[0], normal[1], normal[2]);
+        
+        if(dot(lightDir3, normal3)<0.0){
+            gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+        }
+        else{
+            gl_FragColor[0] = dot(lightDir3, normal3) * gl_FragColor[0];
+            gl_FragColor[1] = dot(lightDir3, normal3) * gl_FragColor[1];
+            gl_FragColor[2] = dot(lightDir3, normal3) * gl_FragColor[2];
+        }
+
     }
 `;
 
