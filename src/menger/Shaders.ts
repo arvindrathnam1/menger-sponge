@@ -53,6 +53,7 @@ export let defaultFSText = `
         else{
             gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0); //blue
         }
+        
         vec3 lightDir3 = vec3(lightDir[0], lightDir[1], lightDir[2]);
         lightDir3 = normalize(lightDir3);
         vec3 normal3 = vec3(normal[0], normal[1], normal[2]);

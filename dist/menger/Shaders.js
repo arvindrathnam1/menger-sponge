@@ -25,29 +25,11 @@ export let defaultVSText = `
     }
 `;
 // TODO: Write the fragment shader
-// The above colors are the base colors; you'll shade the cube based on the orientation of the 
-// face relative to the light source, as described by the diffuse term in the Phong illumination model.
-/*
-        //diffuse term
-        glm::dvec3 l = pLight->getDirection(r.at(i));
-        glm::dvec3 n = i.getN();
-        glm::dvec3 diff = kd(i);
-
-        glm::dvec3 diff_term;
-
-        if (i.getMaterial().Trans()) {
-            diff_term = diff * glm::abs(glm::dot(l, n)) * color;
-        }
-        else {
-            diff_term = diff * glm::max(0.0, glm::dot(l, n)) * color;
-        }
-*/
 export let defaultFSText = `
     precision mediump float;
 
     varying vec4 lightDir;
     varying vec4 normal;    
-
 
     void main () {
         gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
@@ -69,6 +51,7 @@ export let defaultFSText = `
         else{
             gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0); //blue
         }
+        
         vec3 lightDir3 = vec3(lightDir[0], lightDir[1], lightDir[2]);
         lightDir3 = normalize(lightDir3);
         vec3 normal3 = vec3(normal[0], normal[1], normal[2]);
