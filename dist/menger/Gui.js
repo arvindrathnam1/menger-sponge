@@ -120,6 +120,7 @@ export class GUI {
                 break;
             }
             case "KeyR": {
+                this.reset();
                 break;
             }
             case "ArrowLeft": {
